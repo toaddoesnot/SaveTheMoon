@@ -6,15 +6,18 @@ public class Enemy : MonoBehaviour
 {
     public float distance;
     public static bool queriesHitBackfaces;
+    public GameObject cone;
+
 
     public bool IsHit;
     public bool CR_running;
+    public bool colorChanging;
 
     void Start()
     {
         queriesHitBackfaces = false;
         IsHit = false;
-        
+        cone.GetComponent<Renderer>().material.color = Color.green;
     }
 
    
@@ -39,6 +42,10 @@ public class Enemy : MonoBehaviour
         {
             Debug.DrawLine(transform.position, transform.position + transform.right * distance, Color.green);
        }
+
+
+
+
     }
 
     public void Moon()
@@ -47,12 +54,14 @@ public class Enemy : MonoBehaviour
         {
             if(CR_running == true)
             {
-                
+               
             }
             
             else
             {
+                
                 StartCoroutine(MoonEating());
+                
             }
             
         }
@@ -60,19 +69,27 @@ public class Enemy : MonoBehaviour
         else
         {
             IsHit = true;
+            
         }
     }
 
     IEnumerator MoonEating()
     {
         CR_running = true;
+        cone.GetComponent<Renderer>().material.color = Color.red;
+
 
         Debug.Log("The Moon lost one piece.");
         IsHit = false;
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
 
         CR_running = false;
+        cone.GetComponent<Renderer>().material.color = Color.green;
     }
+
+
+
+
 
 }

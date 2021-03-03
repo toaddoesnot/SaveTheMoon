@@ -5798,8 +5798,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 100
+  cone: {fileID: 1536678494}
   IsHit: 0
   CR_running: 0
+  colorChanging: 0
 --- !u!65 &1180802932
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7282,6 +7284,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4661435515762813124, guid: e289bf5debb17f6459818c207d781953,
     type: 3}
   m_PrefabInstance: {fileID: 1817552041}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1536678494 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4ff14e1a759e5e54c8af6ba3fd836603,
+    type: 3}
+  m_PrefabInstance: {fileID: 1484190203}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1582838644
 GameObject:
