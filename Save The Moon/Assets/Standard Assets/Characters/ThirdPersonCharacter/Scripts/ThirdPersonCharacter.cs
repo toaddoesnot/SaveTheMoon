@@ -30,6 +30,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		bool m_Crouching;
 
 
+
 		void Start()
 		{
 			m_Animator = GetComponent<Animator>();
@@ -222,4 +223,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			}
 		}
 	}
+
+
+
+
+
 }
