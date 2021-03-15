@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour
     public bool CR_running;
     public bool colorChanging;
 
+    public CanUHit safeZone;
+
     void Start()
     {
         queriesHitBackfaces = false;
@@ -24,24 +26,29 @@ public class Enemy : MonoBehaviour
     void Update()
     {
        
-        transform.Rotate(new Vector3(0f, 25f, 0f) * Time.deltaTime);
-       
-
-       RaycastHit hitInfo;
-        if(Physics.Raycast(transform.position, transform.right, out hitInfo, distance))
-       {
-            Debug.DrawLine(transform.position, hitInfo.point, Color.red);
-            
-            if(hitInfo.collider.CompareTag("Player"))
+       if(safeZone.AmISafe)
+        {
+            RaycastHit hitInfo;
+            if (Physics.Raycast(transform.position, transform.right, out hitInfo, distance))
             {
-                Moon();
-            }
+                Debug.DrawLine(transform.position, hitInfo.point, Color.red);
 
+                if (hitInfo.collider.CompareTag("Player"))
+                {
+                    Moon();
+                }
+
+            }
+            else
+            {
+                Debug.DrawLine(transform.position, transform.position + transform.right * distance, Color.green);
+            }
         }
+
         else
         {
-            Debug.DrawLine(transform.position, transform.position + transform.right * distance, Color.green);
-       }
+
+        }
 
 
 
