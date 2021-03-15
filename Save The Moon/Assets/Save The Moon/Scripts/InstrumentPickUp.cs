@@ -4,23 +4,14 @@ using UnityEngine;
 
 public class InstrumentPickUp : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Transform teleportTarget;
+    public GameObject theInstrument;
 
     void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag == "Player")
         {
-            Destroy(gameObject);
+            theInstrument.transform.position = teleportTarget.transform.position;
         }
     }
 }
