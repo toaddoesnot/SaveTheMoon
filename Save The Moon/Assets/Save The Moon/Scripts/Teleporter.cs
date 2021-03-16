@@ -6,9 +6,18 @@ public class Teleporter : MonoBehaviour
 {
     public Transform teleportTarget;
     public GameObject thePlayer;
+    public Inventory Inventory;
 
     private void OnTriggerEnter(Collider other)
     {
-        thePlayer.transform.position = teleportTarget.transform.position;
+        if (Inventory.IHaveInstrument == false)
+        {
+            thePlayer.transform.position = teleportTarget.transform.position;
+        }
+        else
+        {
+            Debug.Log("I can not teleport with instruments");
+        }
+        
     }
 }
