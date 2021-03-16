@@ -25,6 +25,8 @@ public class Checkpoint : MonoBehaviour
         if(other.tag == "Player")
         {
             theHealthMan.SetSpawnPoint(transform.position);
+            Debug.Log("Saved");
+            Destroy(gameObject);
         }
     }
 
