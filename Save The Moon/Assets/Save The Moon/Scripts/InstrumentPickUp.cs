@@ -4,16 +4,58 @@ using UnityEngine;
 
 public class InstrumentPickUp : MonoBehaviour
 {
+    
     public GameObject theInstrument;
     public GameObject PortalExit;
+    public bool NoCoroutine;
+    public ZodiacPlatform TriggerCheck1;
+    public ZodiacPlatform TriggerCheck2;
+    public ZodiacPlatform TriggerCheck3;
+    public ZodiacPlatform TriggerCheck4;
 
     public Transform Stack;
-
     public Inventory Inventory;
 
     private void Start()
     {
-        
+        NoCoroutine = false;
+    }
+
+    private void Update()
+    {
+       if (TriggerCheck1.IPlacedInst == true)
+        {
+            NoCoroutine = true;
+        }
+       else
+        {
+            if (TriggerCheck2.IPlacedInst == true)
+            {
+                NoCoroutine = true;
+            }
+            
+            else
+            {
+                if (TriggerCheck3.IPlacedInst == true)
+                {
+                    NoCoroutine = true;
+                }
+                else
+                {
+
+                    if (TriggerCheck4.IPlacedInst == true)
+                    {
+                        NoCoroutine = true;
+                    }
+                    else
+                    {
+                        NoCoroutine = false;
+                    }
+                }
+            }
+        }
+
+
     }
 
     void OnTriggerEnter(Collider collider)
@@ -22,7 +64,8 @@ public class InstrumentPickUp : MonoBehaviour
         {
             if (Inventory.IHaveInstrument == false)
             {
-                Debug.Log("I have an instrument");
+                //Debug.Log("I have an instrument");
+
                 theInstrument.transform.position = Stack.transform.position;
                 Inventory.IHaveInstrument = true;
                 PortalExit.SetActive(true);
@@ -31,26 +74,49 @@ public class InstrumentPickUp : MonoBehaviour
                 {
                     Inventory.IHaveTig = true;
                 }
+                else
+                {
+                    
+                }
 
                 if (theInstrument.tag == "InstBunny")
                 {
                     Inventory.IHaveBunny = true;
+                }
+                else
+                {
+                    
                 }
 
                 if (theInstrument.tag == "InstDrag")
                 {
                     Inventory.IHaveDragon = true;
                 }
+                else
+                {
+                    
+                }
 
                 if (theInstrument.tag == "InstOx")
                 {
                     Inventory.IHaveOx = true;
                 }
+                else
+                {
+                    
+                }
             }
 
             else
             {
-                Debug.Log("I can carry only one instrument");
+                if (NoCoroutine == true)
+                {
+
+                }
+                else
+                {
+                    StartCoroutine(Inventory.GetComponent<Inventory>().Alarm());
+                }
             }
         }
     }
