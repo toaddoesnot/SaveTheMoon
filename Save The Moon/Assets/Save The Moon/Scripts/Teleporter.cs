@@ -8,6 +8,7 @@ public class Teleporter : MonoBehaviour
     public GameObject thePlayer;
     public Inventory Inventory;
 
+
     private void OnTriggerEnter(Collider other)
     {
         if (Inventory.IHaveInstrument == false)
@@ -16,7 +17,7 @@ public class Teleporter : MonoBehaviour
         }
         else
         {
-            Debug.Log("I can not teleport with instruments");
+            StartCoroutine(Inventory.GetComponent<Inventory>().Alarm());
         }
         
     }

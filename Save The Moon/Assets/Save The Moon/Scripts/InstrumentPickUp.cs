@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class InstrumentPickUp : MonoBehaviour
 {
-    
+    public bool MoveMoon;
+
     public GameObject theInstrument;
     public GameObject PortalExit;
     public bool NoCoroutine;
@@ -19,6 +20,7 @@ public class InstrumentPickUp : MonoBehaviour
     private void Start()
     {
         NoCoroutine = false;
+        MoveMoon = false;
     }
 
     private void Update()
@@ -51,7 +53,7 @@ public class InstrumentPickUp : MonoBehaviour
                     {
                         NoCoroutine = false;
                     }
-                }
+                }                                  
             }
         }
 
@@ -60,6 +62,7 @@ public class InstrumentPickUp : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
+        MoveMoon = true;
         if (collider.gameObject.tag == "Player")
         {
             if (Inventory.IHaveInstrument == false)
