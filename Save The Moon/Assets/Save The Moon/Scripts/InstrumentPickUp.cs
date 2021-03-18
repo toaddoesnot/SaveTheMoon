@@ -5,6 +5,11 @@ using UnityEngine;
 public class InstrumentPickUp : MonoBehaviour
 {
     public bool MoveMoon;
+    //public AudioSource animal;
+public AudioClip clip; //make sure you assign an actual clip here in the inspector
+    public Transform Player;
+
+
 
     public GameObject theInstrument;
     public GameObject PortalExit;
@@ -21,6 +26,7 @@ public class InstrumentPickUp : MonoBehaviour
     {
         NoCoroutine = false;
         MoveMoon = false;
+        
     }
 
     private void Update()
@@ -63,6 +69,10 @@ public class InstrumentPickUp : MonoBehaviour
     void OnTriggerEnter(Collider collider)
     {
         MoveMoon = true;
+        //GetComponent<AudioSource>().Play();
+        //Destroy(AudioSource);
+        AudioSource.PlayClipAtPoint(clip, Player.transform.position);
+
         if (collider.gameObject.tag == "Player")
         {
             if (Inventory.IHaveInstrument == false)
@@ -76,6 +86,7 @@ public class InstrumentPickUp : MonoBehaviour
                 if (theInstrument.tag == "InstTiger")
                 {
                     Inventory.IHaveTig = true;
+
                 }
                 else
                 {
