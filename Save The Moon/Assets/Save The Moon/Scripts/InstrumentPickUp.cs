@@ -53,7 +53,7 @@ public class InstrumentPickUp : MonoBehaviour
                     {
                         NoCoroutine = false;
                     }
-                }
+                }                                  
             }
         }
 
@@ -62,7 +62,7 @@ public class InstrumentPickUp : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        
+        MoveMoon = true;
         if (collider.gameObject.tag == "Player")
         {
             if (Inventory.IHaveInstrument == false)

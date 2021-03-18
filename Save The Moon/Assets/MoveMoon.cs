@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoveMoon : MonoBehaviour
 {
     [SerializeField] float lerpTime;
-
+    public InstrumentPickUp instrument;
     public Transform imposter;
 
     void Start()
@@ -16,7 +16,12 @@ public class MoveMoon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.Lerp (transform.position, imposter.transform.position, lerpTime * Time.deltaTime);
+        if (instrument.MoveMoon == true)
+        {
+            transform.position = Vector3.Lerp(transform.position, imposter.transform.position, lerpTime * Time.deltaTime);
+        }
 
     }
+
+   
 }
