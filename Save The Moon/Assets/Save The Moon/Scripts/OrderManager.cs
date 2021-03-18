@@ -22,7 +22,7 @@ public class OrderManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Bongo.transform.position == new Vector3(-48.08444f, 0.4400001f, 22.54957f))
+        if (Bongo.transform.position == new Vector3(-48.41f, 0.4400001f, 22.57f))
         {
             BongoOk.IsCorrect = true;
             BongoPlat.GetComponent<Renderer>().material.color = Color.green;
@@ -32,7 +32,7 @@ public class OrderManager : MonoBehaviour
             BongoPlat.GetComponent<Renderer>().material.color = Color.grey;
         }
 
-        if (Kalimba.transform.position == new Vector3(-49.88444f, 0.4400001f, 22.04957f))
+        if (Kalimba.transform.position == new Vector3(-50.21f, 0.4400001f, 22.07f))
         {
             KalimbaOk.IsCorrect = true;
             KalimbaPlat.GetComponent<Renderer>().material.color = Color.green;
@@ -42,7 +42,7 @@ public class OrderManager : MonoBehaviour
             KalimbaPlat.GetComponent<Renderer>().material.color = Color.gray;
         }
 
-        if (Guitar.transform.position == new Vector3(-7.949234f, -9.444143f, 146.56f))
+        if (Guitar.transform.position == new Vector3(-52.21f, 0.4400001f, 22.57f))
         {
             GuitarOk.IsCorrect = true;
             GuitarPlat.GetComponent<Renderer>().material.color = Color.green;
@@ -52,7 +52,7 @@ public class OrderManager : MonoBehaviour
             GuitarPlat.GetComponent<Renderer>().material.color = Color.gray;
         }
 
-        if (Doo.transform.position == new Vector3(-46.48444f, 0.4400001f, 23.74957f))
+        if (Doo.transform.position == new Vector3(-46.81f, 0.4400001f, 23.77f))
         {
             DooOk.IsCorrect = true;
             DooPlat.GetComponent<Renderer>().material.color = Color.green;
