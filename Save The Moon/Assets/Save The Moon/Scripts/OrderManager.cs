@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class OrderManager : MonoBehaviour
 {
@@ -19,7 +21,19 @@ public class OrderManager : MonoBehaviour
     public ZodiacPlatform DooOk;
     public ZodiacPlatform GuitarOk;
 
+    public Camera endCam;
+    public TMP_Text endText;
+    public GameObject music;
+
     // Update is called once per frame
+
+    private void Start()
+    {
+        endText.enabled = false;
+    }
+
+
+
     void Update()
     {
         if (Bongo.transform.position == new Vector3(-48.41f, 0.4400001f, 22.57f))
@@ -74,13 +88,22 @@ public class OrderManager : MonoBehaviour
                 {
                     if (Doo.transform.position == new Vector3(-46.81f, 0.4400001f, 23.77f))
                     {
-                        Debug.Log("You won");
+                        StartCoroutine(Slow());
                     }
                 }
             }
         }
 
 
+    }
 
+    public IEnumerator Slow()
+    {
+        yield return new WaitForSeconds(1f);
+        Debug.Log("You won");
+        endCam.gameObject.SetActive(true);
+        Time.timeScale = 0f;
+        endText.enabled = true;
+        Destroy(music);
     }
 }
