@@ -8,6 +8,7 @@ TagManager:
   - InstBunny
   - InstOx
   - InstTiger
+  - FIRE
   layers:
   - Default
   - TransparentFX

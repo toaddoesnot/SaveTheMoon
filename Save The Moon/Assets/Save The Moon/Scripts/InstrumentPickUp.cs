@@ -24,6 +24,8 @@ public class InstrumentPickUp : MonoBehaviour
     {
         NoCoroutine = false;
         MoveMoon = false;
+        PortalExit.SetActive(false);
+
     }
 
     private void Update()
