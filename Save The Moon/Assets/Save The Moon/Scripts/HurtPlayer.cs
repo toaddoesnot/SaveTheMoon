@@ -5,6 +5,7 @@ using UnityEngine;
 public class HurtPlayer : MonoBehaviour
 {
     public int damageToGive = 6;
+    public AudioSource death;
 
     //delete after test
     public Transform teleportTarget;
@@ -60,6 +61,7 @@ public class HurtPlayer : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             FindObjectOfType<HealthController>().HurtPlayer(damageToGive);
+            GetComponent<AudioSource>().Play();
         }
     }
 }

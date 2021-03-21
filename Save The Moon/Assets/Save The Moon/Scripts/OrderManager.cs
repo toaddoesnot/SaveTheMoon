@@ -25,17 +25,19 @@ public class OrderManager : MonoBehaviour
         if (Bongo.transform.position == new Vector3(-48.41f, 0.4400001f, 22.57f))
         {
             BongoOk.IsCorrect = true;
-            BongoPlat.GetComponent<Renderer>().material.color = Color.green;
+            BongoPlat.GetComponent<Renderer>().material.color = new Color32(63, 130, 61, 255);
+            Bongo.GetComponent<BoxCollider>().enabled = false;
         }
         else
         {
-            BongoPlat.GetComponent<Renderer>().material.color = Color.grey;
+            BongoPlat.GetComponent<Renderer>().material.color = Color.gray;
         }
 
         if (Kalimba.transform.position == new Vector3(-50.21f, 0.4400001f, 22.07f))
         {
             KalimbaOk.IsCorrect = true;
-            KalimbaPlat.GetComponent<Renderer>().material.color = Color.green;
+            KalimbaPlat.GetComponent<Renderer>().material.color = new Color32(63, 130, 61, 255);
+            Kalimba.GetComponent<BoxCollider>().enabled = false;
         }
         else
         {
@@ -45,7 +47,8 @@ public class OrderManager : MonoBehaviour
         if (Guitar.transform.position == new Vector3(-52.21f, 0.4400001f, 22.57f))
         {
             GuitarOk.IsCorrect = true;
-            GuitarPlat.GetComponent<Renderer>().material.color = Color.green;
+            GuitarPlat.GetComponent<Renderer>().material.color = new Color32(63, 130, 61, 255);
+            Guitar.GetComponent<BoxCollider>().enabled = false;
         }
         else
         {
@@ -55,12 +58,29 @@ public class OrderManager : MonoBehaviour
         if (Doo.transform.position == new Vector3(-46.81f, 0.4400001f, 23.77f))
         {
             DooOk.IsCorrect = true;
-            DooPlat.GetComponent<Renderer>().material.color = Color.green;
+            DooPlat.GetComponent<Renderer>().material.color = new Color32(63, 130, 61, 255);
+            Doo.GetComponent<BoxCollider>().enabled = false;
         }
         else
         {
             DooPlat.GetComponent<Renderer>().material.color = Color.gray;
         }
+
+        if (Bongo.transform.position == new Vector3(-48.41f, 0.4400001f, 22.57f))
+        {
+            if (Kalimba.transform.position == new Vector3(-50.21f, 0.4400001f, 22.07f))
+            {
+                if (Guitar.transform.position == new Vector3(-52.21f, 0.4400001f, 22.57f))
+                {
+                    if (Doo.transform.position == new Vector3(-46.81f, 0.4400001f, 23.77f))
+                    {
+                        Debug.Log("You won");
+                    }
+                }
+            }
+        }
+
+
 
     }
 }
