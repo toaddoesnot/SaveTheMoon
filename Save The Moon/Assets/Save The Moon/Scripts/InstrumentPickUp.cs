@@ -5,6 +5,9 @@ using UnityEngine;
 public class InstrumentPickUp : MonoBehaviour
 {
     public bool MoveMoon;
+    public AudioClip clip;
+    public Transform Player;
+
 
     public GameObject theInstrument;
     public GameObject PortalExit;
@@ -63,6 +66,8 @@ public class InstrumentPickUp : MonoBehaviour
     void OnTriggerEnter(Collider collider)
     {
         MoveMoon = true;
+        AudioSource.PlayClipAtPoint(clip, Player.transform.position);
+
         if (collider.gameObject.tag == "Player")
         {
             if (Inventory.IHaveInstrument == false)

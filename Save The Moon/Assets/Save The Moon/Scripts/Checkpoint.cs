@@ -6,6 +6,7 @@ public class Checkpoint : MonoBehaviour
 {
 
     public HealthController theHealthMan;
+    public AudioSource save;
 
 
     // Start is called before the first frame update
@@ -22,12 +23,22 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+       
+
+        if (other.tag == "Player")
         {
+            GetComponent<AudioSource>().Play();
             theHealthMan.SetSpawnPoint(transform.position);
             Debug.Log("Saved");
-            Destroy(gameObject);
+            StartCoroutine(Save());
+            // 
         }
+    }
+
+    IEnumerator Save()
+    {
+        yield return new WaitForSeconds(0.7f);
+        Destroy(gameObject);
     }
 
 }
